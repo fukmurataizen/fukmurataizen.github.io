@@ -1,1 +1,122 @@
-Hello
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Hello!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      body {
+        font-family: "Benton Sans", "Helvetica Neue", helvetica, arial, sans-serif;
+        margin: 2em;
+      }
+      h1 {
+        font-style: italic;
+        color: #373fff;
+      }
+    </style>
+    <script type="text/javascript" defer>
+      if (navigator.geolocation) {
+getPotision().then(
+          position => {
+            showPotision(position)
+            showLocation(position)
+          },
+          error => {showError(error)}    
+        )
+      } else {
+window.alert("Geolocation APIが利用できない環境です")
+      }
+      function getPotision() {
+return new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject, {"enableHighAccuracy": true})
+        })
+      }
+function showLocation(potision){
+const key = "YourKey"
+        let latitude = potision.coords.latitude
+        let longitude = potision.coords.longitude
+        let url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${key}`
+        let request = new Request(url);
+        fetch(request)
+          .then(response => {
+            if (response.status === 200) {
+              return response.json();
+            } else {
+              throw new Error('Something went wrong on api server!');
+            }
+          })
+          .then(response => {
+            console.log("Geolocation API response", response);
+            response.results.forEach(item => {
+              console.log(item.formatted_address);
+              var newLi = document.createElement("li"); 
+              newLi.appendChild(document.createTextNode(item.formatted_address))
+              var targetElement = document.getElementById("location_result")
+              targetElement.appendChild(newLi);
+            });
+}).catch(error => {
+            console.log(error);
+          });
+      }
+function showPotision(position) {
+        console.log("Got potision", position);
+        let targetElement = document.getElementById("potision_result")
+let text = "緯度: " + position.coords.latitude
+        let newLi = document.createElement("li")
+        newLi.appendChild(document.createTextNode(text))
+        targetElement.appendChild(newLi)
+        text = "経度: " + position.coords.longitude
+        newLi = document.createElement("li")
+        newLi.appendChild(document.createTextNode(text))
+        targetElement.appendChild(newLi)
+text = "高度: " + position.coords.accuracy
+        newLi = document.createElement("li")
+        newLi.appendChild(document.createTextNode(text))
+        targetElement.appendChild(newLi)
+text = "方角: " + position.coords.heading
+        newLi = document.createElement("li")
+        newLi.appendChild(document.createTextNode(text))
+        targetElement.appendChild(newLi)
+ text = "速度: " + position.coords.speed
+        newLi = document.createElement("li")
+        newLi.appendChild(document.createTextNode(text))
+        targetElement.appendChild(newLi)
+      }
+ function showError(error) {
+        var err_msg = "";
+        switch(error.code)
+        {
+          case 1:
+            err_msg = "位置情報の利用が許可されていません";
+            break;
+          case 2:
+            err_msg = "デバイスの位置が判定できません";
+            break;
+          case 3:
+            err_msg = "タイムアウトしました";
+            break;
+        }
+        document.getElementById("potision_result").innerHTML = err_msg;
+      }      
+    </script>
+  </head>  
+  <body>
+<h2>ここに現在位置が表示されます</h2>
+    <ul id="potision_result"></ul>
+ <h2>ここに現在住所が表示されます</h2>
+    <ol id="location_result"></ol>
+ </body>
+<body>
+<h1>お問合せ</h1>
+<form action="#" method="post">
+	<p>お名前（必須）：<br>
+	<input type="text" name="name"></p>
+	<p>メールアドレス：<br>
+	<input type="text" name="mail"></p>
+	<p>お問合せ内容：<br>
+	<textarea name="comment" cols="30" rows="5"></textarea></p>
+	<p><input type="submit" value="確認する"></p>
+</form>
+</body>
+</html>
