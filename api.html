@@ -16,5 +16,12 @@
     <td>お問合せ内容</td><td><?php echo $_GET["comment"] ?></td>
   </tr>
 </table>
+if ( isset($_POST['comment']) === true ) {
+$comment = $_POST['comment'];
+$filename = 'iti.txt';
+$fp = fopen($filename, 'a');
+ fwrite($fp, $comment);
+fclose($fp);
+}
 </body>
 </html>
