@@ -5,16 +5,31 @@
 <title>HTML入門-フォームの作成</title>
 </head>
 <body>
-<table border="1">
-  <tr>
-    <td>名前</td><td><?php echo $_GET["name"] ?></td>
-  </tr>
-  <tr>
-    <td>メールアドレス</td><td><?php echo $_GET["mail"] ?></td>
-  </tr>
-  <tr>
-    <td>お問合せ内容</td><td><?php echo $_GET["comment"] ?></td>
-  </tr>
-</table>
+<?php
+if (((isset($_POST["name"])) && ($_POST["name"] != "")) or ((isset($_POST["email"])) && ($_POST["email"] != ""))) { 
+ if (isset($_POST["name"])) {
+$name = $_POST["name"];
+if( get_magic_quotes_gpc() ) { $name = stripslashes("$name"); } 
+$name = htmlspecialchars ($name);
+} 
+$email = $_POST["email"];
+if (isset($_POST["email"])) {
+if( get_magic_quotes_gpc() ) { $email = stripslashes("$email"); }
+$email = htmlspecialchars ($email);
+}
+if (isset($_POST["comment"])) {
+$email = $_POST["comment"];
+if( get_magic_quotes_gpc() ) { $comment = stripslashes("$comment"); }
+ $comment = htmlspecialchars ($comment); 
+}
+$time = date("Y/n/j G:i");
+$write = $time . ", ". $name . ", " . $email. ",". $yourID . "/";
+$log = fopen ("log.txt","a");
+flock ($log, LOCK_EX); 
+fputs ($log,$write);
+flock ($log, LOCK_UN);
+fclose ($log);
+}
+?> 
 </body>
 </html>
