@@ -6,19 +6,19 @@
 </head>
 <body>
 <?php
-if (((isset($_POST["name"])) && ($_POST["name"] != "")) or ((isset($_POST["email"])) && ($_POST["email"] != ""))) { 
- if (isset($_POST["name"])) {
-$name = $_POST["name"];
+if (((isset($_GET["name"])) && ($_GET["name"] != "")) or ((isset($_GET["email"])) && ($_GET["email"] != ""))) { 
+ if (isset($_GET["name"])) {
+$name = $_GET["name"];
 if( get_magic_quotes_gpc() ) { $name = stripslashes("$name"); } 
 $name = htmlspecialchars ($name);
 } 
-$email = $_POST["email"];
-if (isset($_POST["email"])) {
+$email = $_GET["email"];
+if (isset($_GET["email"])) {
 if( get_magic_quotes_gpc() ) { $email = stripslashes("$email"); }
 $email = htmlspecialchars ($email);
 }
-if (isset($_POST["comment"])) {
-$email = $_POST["comment"];
+if (isset($_GET["comment"])) {
+$email = $_GET["comment"];
 if( get_magic_quotes_gpc() ) { $comment = stripslashes("$comment"); }
  $comment = htmlspecialchars ($comment); 
 }
