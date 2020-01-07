@@ -62,23 +62,23 @@ const key = "YourKey"
 function showPotision(position) {
         console.log("Got potision", position);
         let targetElement = document.getElementById("potision_result")
-let text = "緯度: " + position.coords.latitude
+let text =   position.coords.latitude
         let newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-        text = "経度: " + position.coords.longitude
+        text =  position.coords.longitude
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-text = "高度: " + position.coords.accuracy
+text =  position.coords.accuracy
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-text = "方角: " + position.coords.heading
+text =  position.coords.heading
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
- text = "速度: " + position.coords.speed
+ text =  position.coords.speed
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
@@ -119,5 +119,4 @@ text = "方角: " + position.coords.heading
 	<p><input type="submit" value="確認する"></p>
 </form>
 </body>
-
 </html>
