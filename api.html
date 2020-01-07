@@ -5,31 +5,16 @@
 <title>HTML入門-フォームの作成</title>
 </head>
 <body>
-<?php
-if (((isset($_GET["name"])) && ($_GET["name"] != "")) or ((isset($_GET["email"])) && ($_GET["email"] != ""))) { 
- if (isset($_GET["name"])) {
-$name = $_GET["name"];
-if( get_magic_quotes_gpc() ) { $name = stripslashes("$name"); } 
-$name = htmlspecialchars ($name);
-} 
-$email = $_GET["email"];
-if (isset($_GET["email"])) {
-if( get_magic_quotes_gpc() ) { $email = stripslashes("$email"); }
-$email = htmlspecialchars ($email);
-}
-if (isset($_GET["comment"])) {
-$email = $_GET["comment"];
-if( get_magic_quotes_gpc() ) { $comment = stripslashes("$comment"); }
- $comment = htmlspecialchars ($comment); 
-}
-$time = date("Y/n/j G:i");
-$write = $time . ", ". $name . ", " . $email. ",". $yourID . "/";
-$log = fopen ("log.txt","a");
-flock ($log, LOCK_EX); 
-fputs ($log,$write);
-flock ($log, LOCK_UN);
-fclose ($log);
-}
-?> 
+<table border="1">
+  <tr>
+    <td>名前</td><td> echo $_POST["name"] </td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td><td> echo $_POST["mail"] </td>
+  </tr>
+  <tr>
+    <td>お問合せ内容</td><td> echo $_POST["comment"] </td>
+  </tr>
+</table> 
 </body>
 </html>
