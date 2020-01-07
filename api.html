@@ -16,12 +16,10 @@
     <td>お問合せ内容</td><td><?php echo $_GET["comment"] ?></td>
   </tr>
 </table>
-if ( isset($_POST['comment']) === true ) {
-$comment = $_POST['comment'];
-$filename = 'iti.txt';
-$fp = fopen($filename, 'a');
- fwrite($fp, $comment);
-fclose($fp);
-}
+SenderName =Reqpest.Form("name,mail,comment")
+Set FileObject = Server.CreateObject("Scripting.FileSystemObject")
+Set OutStream = FileObject.OpenTextFile ("C:\TEMP\DATA.TXT", 8, True, 0)
+OutStream.WriteLine SenderName
+OutStream.Close
 </body>
 </html>
