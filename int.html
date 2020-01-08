@@ -59,11 +59,11 @@ const key = "YourKey"
             console.log(error);
           });
       }
+<div class="location">
 function showPotision(position) {
         console.log("Got potision", position);
         let targetElement = document.getElementById("potision_result")
-<div class="location">
-<p>let text =   position.coords.latitude
+let text =   position.coords.latitude
         let newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
@@ -83,7 +83,7 @@ text =  position.coords.speed
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-      }</p>
+      }
 </div>
  function showError(error) {
         var err_msg = "";
