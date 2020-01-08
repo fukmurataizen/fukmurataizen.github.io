@@ -59,7 +59,6 @@ const key = "YourKey"
             console.log(error);
           });
       }
-<div class="location">
 function showPotision(position) {
         console.log("Got potision", position);
         let targetElement = document.getElementById("potision_result")
@@ -84,7 +83,6 @@ text =  position.coords.speed
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
       }
-</div>
  function showError(error) {
         var err_msg = "";
         switch(error.code)
