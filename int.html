@@ -62,7 +62,8 @@ const key = "YourKey"
 function showPotision(position) {
         console.log("Got potision", position);
         let targetElement = document.getElementById("potision_result")
-let text =   position.coords.latitude
+<div class="location">
+<p>let text =   position.coords.latitude
         let newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
@@ -78,11 +79,12 @@ text =  position.coords.heading
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
- text =  position.coords.speed
+text =  position.coords.speed
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-      }
+      }</p>
+</div>
  function showError(error) {
         var err_msg = "";
         switch(error.code)
