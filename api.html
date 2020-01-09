@@ -8,26 +8,22 @@
 <?php
 
    $date="<hr>¥r¥n";
-   $date=$date."<p>名前:"$_GET["name"]"</p>¥r¥n";
-   $date=$date."<p>メールアドレス:"$_GET["mail"]"</p>¥r¥n"; 
-   $data = $data.お問合せ内容:"$_GET["comment"]"</p>¥r¥n";
-    $itijouhou_file='itijouhou.txt';
+   $date.="<p>名前:"$_GET["name"]"</p>¥r¥n";
+   $date.="<p>メールアドレス:"$_GET["mail"]"</p>¥r¥n"; 
+   $data.="<p>お問合せ内容:"$_GET["comment"]"</p>¥r¥n";
 
+    $itijouhou_file='itijouhou.txt';
     $fp=fopen($itijouhou_file,'ab');
     if ($fp){
-        if (flock($fp, LOCK_EX)){
-          if (fwrite($fp,  $data) === FALSE){
-            print('ファイル書き込みに失敗しました');
+        if(flock($fp, LOCK_EX)){
+          if(fwrite($fp,  $data) === FALSE){
+            print('file write error');
             }
-
              flock($fp, LOCK_UN);
             }else{
-              print('ファイルロックに失敗しました');
+              print('file lock error');
             }
-}
-
-fclose($fp);
-
+          }
 ?>
 </body>
 </html>
