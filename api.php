@@ -5,7 +5,7 @@
    $data .="<p>メールアドレス:"$_GET["mail"]"</p>¥r¥n"; 
    $data .="<p>お問合せ内容:"$_GET["comment"]"</p>¥r¥n";
 
-   $data="test";
+   $data="$data .";
     
     $itijouhou_file='itijouhou.txt';
     $fp=fopen($itijouhou_file,'ab');

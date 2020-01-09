@@ -70,18 +70,22 @@ let text =   position.coords.latitude
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
+        <li id="latitude">position.coords.latitude</li>
 text =  position.coords.accuracy
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
+        <li id="accuracy">position.coords.accuracy</li>
 text =  position.coords.heading
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
+         <li id="heading">position.coords.heading</li>
 text =  position.coords.speed
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
+         <li id="speed">position.coords.speed</li>
       }
  function showError(error) {
         var err_msg = "";
