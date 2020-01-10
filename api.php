@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="php">
+<body>
 <?php
 
    $data="<hr>¥r¥n";
@@ -20,3 +23,5 @@
             }
           }
 ?>
+</body>
+</html>
