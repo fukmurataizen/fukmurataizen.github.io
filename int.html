@@ -15,7 +15,6 @@
         color: #373fff;
       }
     </style>
-     <div id="latitude">position.coords.latitude</div>
     <script type="text/javascript" defer>
       if (navigator.geolocation) {
 getPotision().then(
@@ -105,6 +104,7 @@ text =  position.coords.speed
   <body>
 <h2>ここに現在位置が表示されます</h2>
     <ul id="potision_result"></ul>
+      <div id="latitude"></div>
  <h2>ここに現在住所が表示されます</h2>
     <ol id="location_result"></ol>
  </body>
