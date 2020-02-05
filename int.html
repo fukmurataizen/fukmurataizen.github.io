@@ -66,7 +66,7 @@ let text =   position.coords.latitude
         let newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
-        text =  position.coords.longitude
+text =  position.coords.longitude
         newLi = document.createElement("li")
         newLi.appendChild(document.createTextNode(text))
         targetElement.appendChild(newLi)
@@ -105,6 +105,8 @@ text =  position.coords.speed
 <h2>ここに現在位置が表示されます</h2>
     <ul id="potision_result"></ul>
       <div id="latitude"></div>
+      <div id="longitude"></div>
+　　  <div id="accuracy"></div>
  <h2>ここに現在住所が表示されます</h2>
     <ol id="location_result"></ol>
  </body>
