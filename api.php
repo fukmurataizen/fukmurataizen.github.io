@@ -4,8 +4,19 @@
   <title>位置情報の確認</title>
 </head>
 <body>
+<body>
+<h1>お問合せ</h1>
+<form action="https://fukmurataizen.github.io./api.html" method="get">
+        <p>お名前（必須）：<br>
+        <input type="text" name="name"></p>
+        <p>メールアドレス：<br>
+        <input type="text" name="mail"></p>
+        <p>お問合せ内容：<br>
+        <textarea name="comment" cols="30" rows="5"></textarea></p>
+        <p><input type="submit" value="確認する"></p>
+</form>
+</body>
 <?php
-
    $data="<hr>¥r¥n";
    $data .="<p>名前:"$_GET["name"]"</p>¥r¥n";
    $data .="<p>メールアドレス:"$_GET["mail"]"</p>¥r¥n"; 
