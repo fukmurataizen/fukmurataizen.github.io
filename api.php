@@ -14,7 +14,7 @@
    $data="$data .";
     
     $itijouhou_file='itijouhou.txt';
-    $fp=fopen($itijouhou_file,'ab');
+    $fp=fopen($itijouhou_file,"w");
     if($fp){
         if(flock($fp, LOCK_EX)){
           if(fwrite($fp,  $data) === FALSE){
