@@ -1,5 +1,8 @@
-<!DOCTYPE html>
 <html lang="ja">
+<head>
+  <meat charset="utf-8">
+  <title>位置情報の確認</title>
+</head>
 <body>
 <?php
 
