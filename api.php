@@ -17,9 +17,9 @@
 
 <?php
    $data="<hr>¥r¥n";
-   $data .="<p>名前:"$_GET["name"]"</p>¥r¥n";
-   $data .="<p>メールアドレス:"$_GET["mail"]"</p>¥r¥n"; 
-   $data .="<p>お問合せ内容:"$_GET["comment"]"</p>¥r¥n";
+   $data .="<p>名前:".$_GET["name"]."</p>¥r¥n";
+   $data .="<p>メールアドレス:".$_GET["mail"]."</p>¥r¥n"; 
+   $data .="<p>お問合せ内容:".$_GET["comment"]."</p>¥r¥n";
 
    $data="$data .";
     
