@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>位置情報取得サンプル</title>
+
+  <script>
+ if (navigator.geolocation) {
+      alert("この端末では位置情報が取得できます");
+} else {
+      alert("この端末では位置情報が取得できません");
+    }
+    function getPosition() {
+ navigator.geolocation.getCurrentPosition(
+function(position) {
+            alert("緯度:"+position.coords.latitude+",経度"+position.coords.longitude);
+        },
+function(error) {
+          switch(error.code) {
+            case 1:
+ alert("位置情報の利用が許可されていません");
+              break;
+            case 2:
+alert("現在位置が取得できませんでした");
+              break;
+            case 3:
+ alert("タイムアウトになりました");
+              break;
+            default:
+              alert("その他のエラー(エラーコード:"+error.code+")");
+              break;
+          }
+        }
+      );
+    }
+ </script>
+</head>
+<body>
+  <h1>位置情報取得サンプル</h1>
+  <button onclick="getPosition();">位置情報を取得する</button>
+</body>
+</html>
